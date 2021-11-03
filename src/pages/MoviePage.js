@@ -11,8 +11,8 @@ const MoviePage = () => {
             <Theme>
                 <Datatable/>
                 <ModalEdit />
-  <ModalDelete  />
-  <ModalAdd/>
+                <ModalDelete  />
+                <ModalAdd/>
             </Theme>
         </>
     )

@@ -1,15 +1,17 @@
 
+import { Provider } from "react-redux";
 import AppRoute from "./routes/AppRoute";
 
 
-
+import store from "./store";
 
 function App() {
   return (
-    <>
+   
+    <Provider store={store}>
    <AppRoute/>
-      
-    </>
+   </Provider>
+   
   );
 }
 

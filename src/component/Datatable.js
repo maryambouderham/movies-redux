@@ -1,9 +1,10 @@
 import React from 'react'
-
+import { connect } from 'react-redux'
+import { moviesSelector } from '../store/selectors/movie'
 
 import DatatableItem from './DatatableItem'
 
-const Datatable = () => {
+const Datatable = ({movies=[]}) => {
   return (
     <div>
       <div>
@@ -26,18 +27,13 @@ const Datatable = () => {
                 <th>Delete</th>
               </tr></thead>
             <tbody>
-             
-                <DatatableItem
-                
-                
-                    key="1"
-                    id="1"
-                    title="Split" 
-                    description="This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
-                    image="https://fr.web.img6.acsta.net/pictures/16/12/09/09/51/046535.jpg"
-                   
-                   
-                    />
+            {movies.movies.map(t=><DatatableItem 
+          key={t.id}
+          id={t.id}
+          title={t.title}
+          description={t.description}
+          image={t.image} />)}
+               
             
             </tbody>
           </table>
@@ -63,5 +59,10 @@ const Datatable = () => {
     </div>
   )
 }
-
-export default Datatable
+const DatatableStore =connect((state)=>({
+    movies: moviesSelector(state)
+  }),
+  
+  
+  )
+export default DatatableStore(Datatable)
