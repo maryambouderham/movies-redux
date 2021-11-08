@@ -1,6 +1,6 @@
 import { Action } from "../../models/Action";
 import { Anime } from "../../models/Anime";
-import { TYPE_MOVIE_ADD } from "../types/movie";
+import { TYPE_MOVIE_ADD,TYPE_MOVIE_DEL } from "../types/movie";
 
 const initialState={
     movies:[  new Anime("1","Split", "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
@@ -24,10 +24,14 @@ const initialState={
         case TYPE_MOVIE_ADD:
             return{
                 ...state,
-                movies:[...state.movies,new Anime(state.movies.length+1,action.payload.title,action.payload.description,action.payload.image,action.payload.animeTypes,action.playload.actors,action.playload.nbViews,action.payload.rating,action.payload.startingDate)]
+                movies:[...state.movies,new Anime(state.movies.length+1,action.payload.title,action.payload.description,action.payload.image)]
              
             }
- 
+        case TYPE_MOVIE_DEL:   return{
+            ...state,
+            movies:[...state.movies.filter(t=>t.id!==action.payload.MovieId)]
+            
+        }
             
         default : return state
     }

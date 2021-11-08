@@ -1,5 +1,5 @@
 export class Anime {
-    constructor(id, title, description, image, nbViews = "6.3k", rating = "8.5", animeTypes = ["animation", "drama", "action"], actors = ["Griffin Puatu", "dadaz ", "'dazdaz"],startingDate=new Date().toLocaleDateString()) {
+    constructor(id=0, title="", description="", image="", nbViews = "6.3k", rating = "8.5", animeTypes = ["animation", "drama", "action"], actors = ["Griffin Puatu", "dadaz ", "'dazdaz"],startingDate=new Date().toLocaleDateString()) {
         this.id = id
         this.title = title
         this.description = description
@@ -12,4 +12,5 @@ export class Anime {
 
         
     }
+  
 }

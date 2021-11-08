@@ -1,7 +1,9 @@
 import React from 'react'
 const DatatableItem = (props) => {
+   
+    
     return (
-        <>
+         <>
              <tr>
                 <td><input type="checkbox" className="checkthis" /></td>
                 <td><div>
@@ -12,12 +14,12 @@ const DatatableItem = (props) => {
                     <button className="btn btn-warning btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit">
                       <span className="glyphicon glyphicon-pencil" />
                     </button></p></td>
-                <td><p data-placement="top" data-toggle="tooltip" title="Delete">
-                    <button className="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete"><span className="glyphicon glyphicon-trash" />
+                <td><p data-placement="top" data-toggle="tooltip" title="Delete" >
+                    <button className="btn btn-danger btn-xs"  data-title="Delete" data-toggle="modal" data-target="#delete"><span className="glyphicon glyphicon-trash" />
                     </button></p></td>
-              </tr>
+            </tr>
             
-        </>
+         </>
     )
 }
 
