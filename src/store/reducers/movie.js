@@ -1,6 +1,6 @@
 import { Action } from "../../models/Action";
 import { Anime } from "../../models/Anime";
-import { TYPE_MOVIE_ADD,TYPE_MOVIE_DEL } from "../types/movie";
+import { TYPE_MOVIE_ADD,TYPE_MOVIE_DEL, TYPE_MOVIE_UPDATE, TYPE_UPDATE_SELECTEDID } from "../types/movie";
 
 const initialState={
     movies:[  new Anime("1","Split", "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
@@ -17,7 +17,8 @@ const initialState={
     new Anime("6","Remiscicence", "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
     " https://fr.web.img5.acsta.net/pictures/21/07/28/10/29/3991427.jpg")],
      
-     filterQuery:""
+     filterQuery:"",
+     selectedID:""
  }
  export const MovieReducer =(state=initialState,action= new Action())=>{
     switch(action.type){
@@ -29,10 +30,26 @@ const initialState={
             }
         case TYPE_MOVIE_DEL:   return{
             ...state,
-            movies:[...state.movies.filter(t=>t.id!==action.payload.MovieId)]
+            movies:[...state.movies.filter(t=>t.id!==state.selectedID)]
             
         }
-            
+        case TYPE_UPDATE_SELECTEDID:
+         return{
+             ...state,
+             selectedID:action.payload.selectedId
+         }   
+        case TYPE_MOVIE_UPDATE:
+            return{
+                ...state,
+                movies:[...state.movies.map(t=>{
+                    if(t.id===state.selectedID){
+                        t.title=action.payload.title
+                        t.description=action.payload.description
+                        t.image=action.payload.image
+                    }
+                    return t
+                })]
+            }
         default : return state
     }
 }

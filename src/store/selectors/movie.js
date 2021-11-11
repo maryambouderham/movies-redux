@@ -9,3 +9,8 @@ const movieSelectorWithFilter=state=>{
 export const moviesSelector =(state)=>({
     movies:movieSelectorWithFilter(state)
 })
+
+export const moviesSelectorId=(state)=>({
+    selectedId:state.selectedId
+    
+})

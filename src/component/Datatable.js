@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import ModalDelete from "../modals/ModalDelete";
 import { Anime } from "../models/Anime";
 import { moviesSelector } from "../store/selectors/movie";
 import { TYPE_MOVIE_ADD } from "../store/types/movie";
@@ -55,6 +56,7 @@ const Datatable = ({ movies = [] }) => {
                         image={t.image}
                         
                       />
+                      
                     ))}
                   </tbody>
                 </table>
